@@ -1,0 +1,104 @@
+
+
+<app-header-style-one></app-header-style-one>
+
+<div class="add-post-content">
+  <div class="container">
+    <div>
+      <h3 class="new-post-title" style="color: var(--mainColor); text-align: center;">Ajouter une publication </h3>
+    </div>
+    <hr>
+    <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+      <div class="form-group">
+        <label class="post-title" style="color: var(--mainColor);" >Titre</label>
+        <input type="text" [formControlName]="'title'" class="form-control" placeholder="Titre de la publication*">
+
+        <small *ngIf="title.invalid && title.touched" class="help-block">       
+          <div *ngIf="title.errors?.required">
+             Ce champ est obligatoire.
+          </div>
+         
+        </small>
+      </div>
+   <div class="row">
+      <div class="form-group col-md-9">
+        <label class="post-content" style="color: var(--mainColor);">Sous Titre</label>
+        <input type="text" [formControlName]="'content'" class="form-control" placeholder="Sous-Titre de la publication">
+
+        <small *ngIf="content.invalid && content.touched" class="help-block">       
+          <div *ngIf="content.errors?.required">
+             Ce champ est obligatoire.
+          </div>
+         
+        </small>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label class="post-type" style="color: var(--mainColor);">Domaine</label>
+        <input type="text" [formControlName]="'type'" class="form-control" placeholder="Domaine de la publication">
+
+        <small *ngIf="type.invalid && type.touched" class="help-block">       
+          <div *ngIf="type.errors?.required">
+             Ce champ est obligatoire.
+          </div>
+         
+        </small>
+      </div>
+
+    </div>
+     
+      <div class="form-group">
+        <label class="post-description" style="color: var(--mainColor);">Contenu</label>
+        <editor [formControlName]="'description'" [init]="{plugins: 'link'}"></editor>
+      </div>
+
+      <div class="col-lg-8 col-md-6">
+          <div id="parent-div" class="form-group">
+
+              <input type="file" (change)="onFileChanged($event)" name="upfile" id="upfile" class="form-control" formControlName="upfile" required>
+              <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+              <!--message de validation-->
+              <small>Les formats acceptés sont JPG et PNG</small>
+
+              <small *ngIf="upfile.invalid && upfile.touched" class="help-block">       
+                <div *ngIf="upfile.errors?.required">
+                   Ce champ est obligatoire.
+                </div>
+               
+              </small>
+
+          </div>
+      </div>
+
+      
+
+<!-- 
+      <div class="form-group">
+        <label class="post-imageBlog">Image upload</label>
+        <input type="file"  [formControlName]="'imageBlog'" class="form-control" name="imageBlog"/>
+
+        <input type="file" [formControlName]="'imageBlog'" class="form-control" name="imageBlog" multiple/>
+  
+  
+        
+        
+
+      
+      </div> -->
+  
+  
+     <div class="form-group" style="text-align: center;">
+       
+          <button type="submit" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Publier</span><i class="bx bx-paper-plane icon-arrow after"></i></button>
+      
+      </div>
+    </form >
+  </div>
+</div>
+
+
+
+<!-- <app-upload-files></app-upload-files> -->
+<!-- 
+<app-upload-files   type="file" #fileUpload id="imageBlog" [formControlName]="'imageBlog'"
+name="imageBlog" multiple="multiple" accept="image/*"></app-upload-files> -->

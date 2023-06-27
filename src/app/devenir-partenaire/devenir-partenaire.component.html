@@ -1,0 +1,230 @@
+<section class="contact-area pb-100">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title" routerLink="/">Tunsian Women's Empowerment</span>
+            <h2>Devenir un partenaire</h2>
+        </div>
+
+        <div class="contact-form">
+            <form id="" autocomplete="off" [formGroup]="brandForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && lastNamePart.errors}">
+                            <input type="text" name="lastNamePart" id="lastNamePart" class="form-control" formControlName="lastNamePart" placeholder="Nom *" minlength="4" required>
+
+                            <span *ngIf="lastNamePart.invalid && lastNamePart.touched" class="help-block">       
+                                <div *ngIf="lastNamePart.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                <div *ngIf="lastNamePart.errors?.pattern">
+                                  Votre nom ne doit contenir que des lettres.
+                                </div> 
+                                <div *ngIf="lastNamePart.errors?.minlength">
+                                   Votre nom doit comporter au moins 4 lettres.
+                                </div>
+                            </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && firstNamePart.errors}">
+                            <input type="text" name="firstNamePart" id="firstNamePart" class="form-control" placeholder="Prénom *" formControlName="firstNamePart" minlength="4" required>
+                            <!--message de validation-->
+
+                            <span *ngIf="firstNamePart.invalid && firstNamePart.touched" class="help-block">       
+                                <div *ngIf="firstNamePart.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                <div *ngIf="firstNamePart.errors?.pattern">
+                                    Ce champ  ne doit contenir que des lettres.
+                                </div> 
+                                <div *ngIf="firstNamePart.errors?.minlength">
+                                    Ce champ  doit comporter au moins 4 lettres.
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && emailPart.errors}">
+                            <input type="email" name="emailPart" id="emailPart" class="form-control" placeholder="Adresse e-mail *" formControlName="emailPart" required email>
+
+                            <span *ngIf="emailPart.invalid && emailPart.touched" class="help-block">       
+                                <div *ngIf="emailPart.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                <div *ngIf="emailPart.errors?.email">
+                                    Entrer un email valide.
+                                 </div>
+                                 <!-- <div *ngIf="!emailPart.errors?.notUnique && emailPart.touched">
+                                    Deja existe
+                                 </div> -->
+                                
+                             </span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && nameSociety.errors}">
+                            <input type="text" name="nameSociety" id="nameSociety" class="form-control" placeholder="Le nom de votre Societé *" formControlName="nameSociety" minlength="4" required>
+
+                            <!-- <span *ngIf="nameSociety.invalid && nameSociety.touched" class="help-block">       
+                                <div *ngIf="nameSociety.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                
+                                
+                             </span> -->
+                             <span *ngIf="nameSociety.invalid && nameSociety.touched" class="help-block">       
+                                <div *ngIf="nameSociety.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                <div *ngIf="nameSociety.errors?.pattern">
+                                  Ce champ ne doit contenir que des lettres.
+                                </div> 
+                                
+                            </span>
+                             
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && enclassement.errors}">
+                            <input type="text" name="enclassement" id="enclassement" class="form-control" placeholder="Enclassement *" formControlName="enclassement" minlength="4" required>
+
+                            <span *ngIf="enclassement.invalid && enclassement.touched" class="help-block">       
+                                <div *ngIf="enclassement.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                <div *ngIf="enclassement.errors?.pattern">
+                                    Ce champ  ne doit contenir que des lettres.
+                                </div> 
+                                <div *ngIf="enclassement.errors?.minlength">
+                                    Ce champ  doit comporter au moins 4 lettres.
+                                </div>
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && numero.errors}">
+                            <input type="text" name="numero" id="numero" class="form-control" placeholder="Numéro de téléphone *" formControlName="numero" required>
+
+                            <span *ngIf="numero.invalid && numero.touched" class="help-block">       
+                                <div *ngIf="numero.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                <div *ngIf="numero.errors?.pattern">
+                                    Ce champ  ne doit contenir que des chiffres.
+                                </div> 
+                                <div *ngIf="numero.errors?.minlength">
+                                    Ce champ  doit comporter au moins 8 chiffres.
+                                </div>
+                                <div *ngIf="numero.errors?.maxlength">
+                                    Ce champ  doit comporter au maximum 20 caractères.
+                                 </div>
+                            </span>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && localisation.errors}">
+                            <input type="text" name="localisation" id="localisation" class="form-control" placeholder="Adresse ville *" formControlName="localisation" minlength="4" maxlength="64" required>
+
+                            <span *ngIf="localisation.invalid && localisation.touched" class="help-block">       
+                                <div *ngIf="localisation.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                <div *ngIf="localisation.errors?.pattern">
+                                    Ce champ  ne doit contenir que des lettres et des chiffres.
+                                </div> 
+                                <div *ngIf="localisation.errors?.minlength">
+                                    Ce champ  doit comporter au moins 4 caractères.
+                                </div>
+                                <div *ngIf="localisation.errors?.maxlength">
+                                    Ce champ  doit comporter au maximum 64 caractères.
+                                 </div>
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && pays.errors}">
+                                <input type="text" name="pays" id="pays" class="form-control" placeholder="Pays *" formControlName="pays" minlength="4" maxlength="64" required>
+    
+                                <span *ngIf="pays.invalid && pays.touched" class="help-block">       
+                                    <div *ngIf="pays.errors?.required">
+                                       Ce champ est obligatoire.
+                                    </div>
+                                    <div *ngIf="pays.errors?.pattern">
+                                        Ce champ  ne doit pas contenir des caractères.
+                                    </div> 
+                                    <div *ngIf="pays.errors?.minlength">
+                                        Ce champ  doit comporter au moins 4 chiffres ou lettres.
+                                    </div>
+                                    <div *ngIf="pays.errors?.maxlength">
+                                        Ce champ  doit comporter au maximum 64 caractères.
+                                     </div>
+                                </span>
+    
+                            </div>
+                  
+                        </div>
+                    </div>
+
+
+
+                    <label>Télécharger le logo de la societé <span class="required">*</span></label>
+                    <div class="col-lg-8 col-md-6">
+                        <div id="parent-div" class="form-group" [ngClass]="{ 'has-error': isSubmitted && upfile.errors}">
+
+                            <input type="file" (change)="onFileChanged($event)" name="upfile" id="upfile" class="form-control" formControlName="upfile" required>
+                            <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+                            <!--message de validation-->
+                            <small>Les formats acceptés sont JPG et PNG</small>
+
+                            <span *ngIf="upfile.invalid && upfile.touched" class="help-block">       
+                                <div *ngIf="upfile.errors?.required">
+                                   Ce champ est obligatoire.
+                                </div>
+                                <div *ngIf="upfile.errors?.pattern">
+                                    
+
+                                 </div>
+                            
+                          
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="Téléphone">
+                        </div>
+                    </div> -->
+
+
+                    <div>
+                        <!-- <span *ngIf="brandForm.invalid" class="help-block">Tous les champs sont obligatoires</span> <br>
+                         -->
+                        <button type="submit" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Envoyer</span><i class="bx bx-paper-plane icon-arrow after"></i></button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="particles-js-circle-bubble-3"></div>
+    <div class="contact-bg-image"><img src="assets/img/map.png" alt="image"></div>
+</section>

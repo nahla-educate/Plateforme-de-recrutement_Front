@@ -1,0 +1,173 @@
+
+
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+	&nbsp;
+	&nbsp;
+	&nbsp;
+	&nbsp;
+  
+	
+	 <a href="/"><img src="assets/img/logo.png" width="150px" height="150px"></a> 
+			  
+	  &nbsp;    &nbsp;
+	  &nbsp;
+	  &nbsp;
+	   &nbsp;
+  
+   
+	  <div class="collapse navbar-collapse" id="navbarText">
+		<ul class="navbar-nav mr-auto">
+		  <li class="nav-item " >
+			<a class="nav-link" href="/up">Espace candidate </a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/recruteur">Espace Recruteur </a>
+		  </li>
+          <li class="nav-item active">
+			<a class="nav-link" href="/list-partenaire">Liste des partenaires <span class="sr-only">(current)</span></a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="/blog">Blog</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="#">Actualités</a>
+		  </li>
+		</ul>
+	  </div>
+	  <!-- <button class="btn btn-md btn-outline-dark" (click)="open(content)"> 
+		<i class="fa fa-user"></i> Nouvelle Candidate</button> -->
+		&nbsp;&nbsp;
+	  <form class="form-inline my-2 my-lg-0">
+		<input type="search" (ngModelChange)="search(key1.value)" name="search1" #key1="ngModel" ngModel  class="input-search" placeholder="Recherche par email">
+	
+  </form>
+  
+	  
+	  
+  </nav>
+
+
+
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Logo de la societé</th>
+                <th>Nom de la societé</th>
+                <th>Nom de la partenaire</th>
+                <th>Prénom de la partenaire</th>
+                <th>Email</th>
+                <th>Action</th>
+                <th>etat</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let partenaire of partenaires">
+                <th> <img src="{{partenaire.retrievedImage}}" alt="image"> <button class="btn btn-sm btn-primary" (click)="openDetails(contentDetails, partenaire)"><i class="fa fa-plus"></i></button></th>
+                <th>{{partenaire.nameSociety}}</th>
+                <th>{{partenaire.lastNamePart}}</th>
+                <th>{{partenaire.firstNamePart}}</th>
+                <th>{{partenaire.emailPart}}</th>
+                
+                <td>
+                    <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, partenaire)"><i class="fa fa-trash"></i></button>
+                 <button class="btn btn-sm btn-success" (click)="openValide(contentValide, partenaire)"><i class="fa fa-check"></i></button>
+                 </td><th>	{{partenaire.etat}}		  </th>
+            </tr>
+        </tbody>
+
+
+    </table>
+</div>
+<ng-template #contentDetails let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Part details</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+        <form action="">
+            <div class="form-group">
+                <label for="firstNamePart">Le nom :</label>
+                <div class="input-group">
+                    <input id="firstNamePart" class="read" readonly>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="lastNamePart">Le prénom :</label>
+                <div class="input-group">
+                    <input id="lastNamePart" class="read" readonly>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="emailPart">Adresse e-mail :</label>
+                <div class="input-group">
+                    <input id="emailPart" class="read" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nameSociety">Nom de la societé :</label>
+                <div class="input-group">
+                    <input id="nameSociety" class="read" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="enclassement">Enclassement :</label>
+                <div class="input-group">
+                    <input id="enclassement" class="read" readonly>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="localisation">Localisation :</label>
+                <div class="input-group">
+                    <input id="localisation" class="read" readonly>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Retour</button>
+    </div>
+</ng-template>
+
+<ng-template #contentDelete let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title text-center">Confirm Delete</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <h4>Vous etes sure que vous voulez supprimer ce partenaire ?</h4>
+        <div class="text-center">
+            <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Oui, supprimer!</button>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #contentValide let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title text-center">Confirm Delete</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <h4>Vous etes sure que vous voulez accepter ce partenaire ?</h4>
+        <div class="text-center">
+            <button data-dismiss="modal" class="btn btn-danger" (click)="Valide(partenaire)">Oui, !</button>
+        </div>
+    </div>
+
+</ng-template>

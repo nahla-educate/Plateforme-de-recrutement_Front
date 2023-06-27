@@ -1,0 +1,27 @@
+.single-partner-item {
+    text-align: center; 
+    margin-left: 75px;
+    a {
+        img {
+            width: 100px !important;
+            display: inline-block !important;
+            transition: var(--transition);
+            opacity: .9;
+            
+            //justify-content: center;
+        }
+    }
+    &:hover,
+    &:focus {
+        a {
+            img {
+                opacity: 1;
+            }
+        }
+    }
+}
+.partner-slides{
+    display: flex;
+    
+    
+}

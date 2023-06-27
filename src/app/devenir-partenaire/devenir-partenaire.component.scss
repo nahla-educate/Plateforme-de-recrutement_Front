@@ -1,0 +1,112 @@
+
+
+.contact-area {
+    margin-top: 2%;
+    padding-top: 2%;
+    //overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form {
+    background-color: var(--whiteColor);
+    box-shadow: 0px 8px 16px 0px rgba(5, 31, 78, 0.2);
+    border-radius: 5px;
+    padding: 50px;
+    max-width: 850px;
+    margin: {
+        left: auto;
+        right: auto;
+    }
+    ;
+}
+
+#contactForm {
+    .form-group {
+        .form-control {
+            height: 50px;
+            border-radius: 5px;
+            &::placeholder {
+                color: var(--paragraphColor);
+                transition: var(--transition);
+            }
+            &:focus {
+                &::placeholder {
+                    color: transparent;
+                }
+            }
+        }
+        textarea.form-control {
+            height: auto;
+        }
+    }
+    .default-btn {
+        border-radius: 30px;
+        margin-top: 10px;
+        box-shadow: 0 5px 28.5px 1.5px rgba(255, 25, 73, 0.2);
+        &:hover,
+        &:focus {
+            box-shadow: 0 5px 28.5px 1.5px rgba(14, 181, 130, 0.2);
+        }
+    }
+}
+
+.contact-bg-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 65%;
+    transform: translateY(-65%);
+    text-align: center;
+    z-index: -1;
+    margin: {
+        left: auto;
+        right: auto;
+    }
+    ;
+}
+
+.btn-radio {
+    margin-left: 5%;
+    margin-bottom: 3%;
+}
+
+label {
+    margin-left: 1%;
+}
+
+#select {
+    color: #3d3d3d;
+}
+
+select {
+    display: block;
+    height: 100px;
+}
+
+// .form-control.ng-invalid {
+//     border: 1px solid red;
+// }
+
+.form-control.ng-touched.ng-valid {
+    border: 2px solid green;
+}
+.required {
+    color: red;
+}
+.invalid-input {
+    color: red;
+}
+
+.help-block {
+    color: red;
+}
+/*/*********/
+.sub-title{
+    cursor: pointer;
+}
+#upfile {
+    text-decoration: none;
+    border: none;
+    width: 50%;
+}

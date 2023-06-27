@@ -1,0 +1,23 @@
+
+.form-control.ng-touched.ng-valid {
+    border: 2px solid green;
+}
+.required {
+    color: red;
+}
+.invalid-input {
+    color: red;
+}
+
+.help-block {
+    color: red;
+}
+/*/*********/
+.sub-title{
+    cursor: pointer;
+}
+#upfile {
+    text-decoration: none;
+    border: none;
+    width: 50%;
+}

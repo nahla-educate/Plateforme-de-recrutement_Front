@@ -1,0 +1,144 @@
+<!-- <p>app-socket works!</p>
+
+<body>
+
+  
+    <div class="container" style="width: 400px; margin-top: 20px;">
+  
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="connect">Participer à la discussion maintenant ..</label>
+          <button id="connect" class="btn btn-default" type="button" [disabled]="!disabled" (click)="connect()">Connect</button>
+          <button id="disconnect" class="btn btn-default" type="submit" [disabled]="disabled" (click)="disconnect()">Disconnect</button>
+        </div>
+      </form>
+  
+      <form class="form-inline" style="margin-top: 20px;">
+        <div class="form-group">
+          <label for="email">message</label>
+          <input type="text" id="email" name="email" class="form-control" [(ngModel)]="email" />
+        </div>
+        <button id="send" class="btn btn-default" type="button" (click)="sendName()">Send</button>
+      </form>
+  
+      <table id="conversation" class="table table-striped" style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Greetings</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let greeting of greetings">
+          <tr>
+            <td>{{greeting}}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </body>
+   -->
+         
+   <app-header-style-one></app-header-style-one>
+   <br><br><br>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+
+    
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+
+        <!-- Row start -->
+        <div class="row gutters">
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                <div class="card m-0">
+
+                    <!-- Row start -->
+                    <div class="row no-gutters">
+                      
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-9 col-9">
+                            <div class="selected-user" style="text-align: center;">
+                           <span>  <span class="name">chatter sur TWE &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+         
+
+          <div class="btn-group btn-group-toggle " data-toggle="buttons" >
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> 
+              <button id="connect" class="btn btn-default" type="button" [disabled]="!disabled" (click)="connect()" style="color: aliceblue;">Connect</button>
+            </label>
+        
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off">
+              <button id="disconnect" class="btn btn-default" type="submit" [disabled]="disabled" (click)="disconnect()"style="color: aliceblue;">Disconnect</button>
+
+            </label>
+          </div>
+       
+
+
+                                </span></span>
+                            </div>
+                            
+                            <div class="chat-container" >
+                                <ul class="chat-box chatContainerScroll">
+                                    <li class="chat-right">
+                                        <div class="chat-avatar">
+                                            <div class="chat-name"></div>
+                                        </div>
+                                        <div class="chat-text">
+
+                                          <table id="conversation" class="table table-striped" style="margin-top: 20px;">
+    
+
+
+
+
+                                           <tbody *ngFor="let greeting of greetings">      
+                                                      {{greeting.email}}
+                                              <tr style="margin-left: 200px !important;">
+                                 
+                                                <td>{{greeting.message}}</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+
+                                          
+                                        </div>
+                                        <div class="chat-hour"><span class="fa fa-check-circle"></span></div>
+                                    </li>
+                                   
+                                   
+                                </ul>
+                                <div class="form-group mt-3 mb-0">
+                                               <ul class="chat-left">
+                                                 <li>
+                                                    <form>
+                                      <div class="form-group">
+                                        <label for="email"></label>
+                                        <textarea type="text" id="message" name="message" class="form-control" [(ngModel)]="message"
+                                        rows="3" placeholder="Type your message here..."></textarea>
+                                      </div>
+                                      <button id="send" class="btn btn-default" type="button" (click)="sendName()">Envoyer</button>
+                                    </form>
+  
+                                                 </li>
+                                               </ul>                   
+                                   
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row end -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Row end -->
+
+    </div>
+    <!-- Content wrapper end -->
+
+</div>

@@ -1,0 +1,57 @@
+
+
+<app-header-style-one></app-header-style-one>
+
+<div class="add-post-content">
+  <div class="container">
+    <div>
+      <h3 class="new-post-title" style="color: var(--mainColor); text-align: center;">Envoyer une demande de recrutement</h3>
+    </div>
+    <hr>
+    <form [formGroup]="addNotifForm" (ngSubmit)="addPost()">
+      <div class="form-group">
+        <label class="post-title" style="color: var(--mainColor);" >Poste</label>
+        <input type="text" formControlName="poste" class="form-control" placeholder="Poste*">
+
+        <small *ngIf="poste.invalid && poste.touched" class="help-block">       
+          <div *ngIf="poste.errors?.required">
+             Ce champ est obligatoire.
+          </div>
+         
+        </small>
+      </div>
+      <div class="form-group">
+        <label class="post-title" style="color: var(--mainColor);" >Societé</label>
+        <input type="text" formControlName="society" class="form-control" placeholder="Societé*">
+
+        <small *ngIf="society.invalid && society.touched" class="help-block">       
+          <div *ngIf="society.errors?.required">
+             Ce champ est obligatoire.
+          </div>
+         
+        </small>
+      </div>
+      <div class="form-group">
+        <label class="post-title" style="color: var(--mainColor);" >Date de début prise de poste</label>
+        <input type="date" min="{{createdDate |date:'yyyy-MM-dd'}}" formControlName="dateDebut" class="form-control" placeholder="Date de début prise de poste*">
+        <!-- <small>La date qui sera affecté doit </small> -->
+        <small *ngIf="dateDebut.invalid && dateDebut.touched" class="help-block">       
+          <div *ngIf="dateDebut.errors?.required">
+             Ce champ est obligatoire.
+          </div>
+         
+        </small>
+      </div>
+  
+     
+   
+  
+     <div class="form-group" style="text-align: center;">
+       
+          <button type="submit" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Envoyer</span><i class="bx bx-paper-plane icon-arrow after"></i></button>
+      
+      </div>
+    </form >
+  </div>
+</div>
+

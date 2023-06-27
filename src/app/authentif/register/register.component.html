@@ -1,0 +1,217 @@
+<section class="register-area">
+    <div class="row m-0">
+       
+
+        <div class="col-lg-12 col-md-12 p-0">
+            <div class="register-content">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="register-form">
+                            <div class="logo">
+                                <a routerLink="/"><img src="assets/img/logo.png" width="120px" height="100px" alt="image"></a>
+                            </div>
+                            <h3>S'inscrire sur TWE</h3>
+
+                                 
+
+                            <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+
+                                <div class="payment-box" [ngClass]="{ 'has-error': role.errors}">
+                                    <div class="payment-method row" >
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        <p > 
+                                            <input type="radio" id="roleRecruteur" formControlName="role"  value="recruteur" name="role" checked>
+                                            <label class="form-check-label" for="roleRecruteur">Recruteur </label>
+        
+                                        </p>
+                                        &nbsp; &nbsp;  
+                                        <p>
+                                            <input type="radio"  id="roleCandidate" formControlName="role" name="role" value="candidate">
+                                           
+                                            <label class="form-check-label" for="roleCandidate" >Candidate</label>
+                                        </p>
+                                      
+                                                            
+                                    </div> 
+                                    <small  class="help-block" id="role" [ngClass]="{ 'has-error': role.errors}">       
+                                        <div  *ngIf="role.errors?.required && show">
+                                           Ce champ est obligatoire
+                                        </div>
+
+                                      
+                                    </small>
+                                   
+                                    
+                                    <!-- <small  class="help-block" id="role" [ngClass]="{ 'has-error': isSubmitted && role.errors}">       
+                                            <div *ngIf="role.errors?.required">
+                                               Ce champ est obligatoire
+                                            </div>
+
+                                          
+                                         </small>  -->
+                                </div>
+
+
+                               
+
+
+
+                                <div class="form-group" [ngClass]="{ 'has-error': isSubmitted && username.errors}">
+                                    <label for="inputUsername" class="sr-only">Username</label>
+                                    <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control" placeholder="Nom complet *" minlength="8"  required="" autofocus="">
+
+                                     <small *ngIf="username.invalid && username.touched" class="help-block">       
+                                        <div *ngIf="username.errors?.required">
+                                           Le nom est obligatoire.
+                                        </div>
+                                        <div *ngIf="username.errors?.minlength">
+                                            Le nom doit comporter au moins 8 caractères.
+                                         </div>
+                                            
+                                     </small> 
+                                </div>
+
+                                <div class="row">
+                                <div class="form-group col-md-6" [ngClass]="{ 'has-error': isSubmitted && email.errors}">
+                                    <label for="inputEmail" class="sr-only">Email</label>
+                                    <input type="text" id="inputEmail" [formControlName]="'email'" class="form-control" placeholder="Email *" required="" autofocus="">
+
+                                    <small *ngIf="email.invalid && email.touched" class="help-block">       
+                                        <div *ngIf="email.errors?.required">
+                                           L'adresse email est obligatoire.
+                                        </div>
+                                        <div *ngIf="email.errors?.email">
+                                            Entrer une email valide.
+                                         </div>
+                                        
+                                     </small>
+                                </div> 
+                                <div class="form-group col-md-6" [ngClass]="{ 'has-error': isSubmitted && adresse.errors}">
+                                    <label for="inputAdresse" class="sr-only">adresse </label>
+                                    <input type="text" id="inputAdresse" [formControlName]="'adresse'" class="form-control" placeholder="Adresse *" required="" autofocus="">
+
+                                    <small *ngIf="adresse.invalid && adresse.touched" class="help-block">       
+                                        <div *ngIf="adresse.errors?.required">
+                                           L'adresse est obligatoire.
+                                        </div>
+                                                                               
+                                       
+                                     </small> 
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="form-group col-md-6" [ngClass]="{ 'has-error': isSubmitted && password.errors}">
+                                    <label for="inputPassword" class="sr-only">Mot De </label>
+                                    <input type="password" id="inputPassword" [formControlName]="'password'" class="form-control" placeholder="Mot de passe *" required="" autofocus="" minlength="8" pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$">
+
+                                   
+                                    <small *ngIf="password.invalid && password.touched" class="help-block">       
+                                        <div *ngIf="password.errors?.required">
+                                            Le mot de passe est obligatoire.
+                                        </div>
+                                        <div *ngIf="password.errors?.pattern">
+                                          Le mot de passe doit contenir des lettres et des chiffres.
+                                        </div> 
+                                        <div *ngIf="password.errors?.minlength">
+                                            Le mot de passe doit comporter au moins 8 caractères.
+                                        </div>
+                                        
+                                     </small>
+                                </div>
+                                <div class="form-group col-md-6" [ngClass]="{ 'has-error': isSubmitted && confirmPassword.errors}">
+                                    <label for="inputConfirmPassword" class="sr-only">ConfirmPassword</label>
+                                    <input type="password" id="inputConfirmPassword" [formControlName]="'confirmPassword'" class="form-control" placeholder="Confirmer votre mot de passe *" required=""  autofocus="">
+
+                                    <small *ngIf="confirmPassword.invalid && confirmPassword.touched" class="help-block">       
+                                        <div *ngIf="confirmPassword.errors?.required">
+                                            La confirmation de mot de passe est obligatoire.
+                                        </div>
+                                       
+                                        <div *ngIf="confirmPassword.errors?.MustMatch">
+                                            La confirmation de mot de passe ne correspond pas.
+                                        </div>
+                                        
+                                     </small>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-8" [ngClass]="{ 'has-error': isSubmitted && poste.errors}">
+                                    <label for="inputPoste" class="sr-only">Poste</label>
+                                    <input type="text" id="inputPoste" [formControlName]="'poste'" class="form-control" placeholder="Poste *" required="" autofocus="">
+
+                                  <small *ngIf="poste.invalid && poste.touched" class="help-block">       
+                                        <div *ngIf="poste.errors?.required">
+                                            La poste est obligatoire.
+                                        </div>
+                                        <!-- <div *ngIf="poste.errors?.pattern">
+                                          La poste ne doit contenir que des lettres .
+                                        </div>  -->
+                                       
+                                        
+                                     </small>
+                                </div>
+    
+                                <div class="form-group col-md-4" [ngClass]="{ 'has-error': isSubmitted && experience.errors}">
+                                    <label for="inputPoste" class="sr-only">EXpérience</label>
+                                    <input type="number" id="inputExperience"  [formControlName]="'experience'" class="form-control" placeholder="experience *" min="0" required="" autofocus=""/>
+
+                                    <small *ngIf="experience.invalid && experience.touched" class="help-block">       
+                                        <div *ngIf="experience.errors?.required">
+                                       Veuillez saisir vos années d'expérience.
+                                        </div>                                       
+                                        
+                                     </small>
+     
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+
+
+
+    <!-- //erreur dans le console [ngControl] checkit --> 
+
+    <ngx-recaptcha2 #captchaElem
+    [siteKey]="siteKey" 
+    [formControlName]="'recaptcha'">
+    
+    </ngx-recaptcha2>
+
+<br>
+                                <button class="btn btn-lg btn-success btn-block" type="submit" (click)="toggle()">S'inscrire </button>
+                                <p>Vous avez déja un compte? <a routerLink="/login">Se Connecter</a></p>
+
+
+                                <!-- <button type="submit">Sign Up</button> -->
+                                <div class="connect-with-social">
+                                    <span>OU</span>
+                                    <button type="submit" class="facebook" (click)=" signInWithFB()"><i class='bx bxl-facebook'></i> Connect with Facebook</button>
+                                    <br>
+                                    
+                                    <button type="submit" class="google" (click)=" signInWithGoogle()"><i class='bx bxl-google'></i> Connect with Google</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
