@@ -8,13 +8,13 @@ Plateforme de recrutement des tunisiennes
 * Recieve notifications
 
 ## Installation
-  ### Front 
+### Front 
 * Install angular Cli
 * Download this project
 * npm install
 * npm start
   
-  ### Back
+### Back
 * Download spring boot for eclipse
 * Download the project of plateforme de recrutement backend
 * Create a database named twebase2
