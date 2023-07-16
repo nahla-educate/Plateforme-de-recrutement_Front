@@ -1,4 +1,9 @@
 # Plateforme de recrutement des tunisiennes 
 Plateforme de recrutement des tunisiennes 
-npm install
-npm start
+
+## Installation
+* npm install
+* npm start
+
+## Screenshots
+
